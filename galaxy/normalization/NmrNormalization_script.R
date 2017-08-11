@@ -142,6 +142,7 @@ NmrNormalization <- function(dataMatrix,scalingMethod=c("None","Total","PQN","Bi
   }
 
   ## OUTPUTS
+  NormalizedBucketedSpectra[NormalizedBucketedSpectra==NA] <- 0
   return(list(NormalizedBucketedSpectra))
 
 }

@@ -1,4 +1,4 @@
-<tool id="normalization" name="Normalization" version="1.0.2">
+<tool id="normalization" name="Normalization" version="1.0.3">
 
     <description> Normalization of (preprocessed) spectra </description>
 
@@ -242,6 +242,10 @@ Under construction
 --------------
 Changelog/News
 --------------
+
+**Version 1.0.3 - 11/08/2017**
+
+- BUG COORECTION: zoomed graphical display for PQN normalization method
 
 **Version 1.0.2 - 22/10/2016**
 

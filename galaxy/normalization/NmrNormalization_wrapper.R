@@ -83,7 +83,7 @@ log <- argLs[["logOut"]]
 
 ## Checking R packages
 ##--------------------
-sink(logOut)
+sink(log)
 cat("\tPACKAGE INFO\n")
 pkgs=c("batch")
 for(pkg in pkgs) {
@@ -124,13 +124,23 @@ if (graphique != "None")
   }
   else
   {
-    for (i in 1:ncol(data_normalized))
-    {
-      spectra <- t(data_normalized[,i])
-      drawSpec(spectra,xlab="", ylab="Intensity", main=colnames(data_normalized)[i])
-    }
+	for (i in 1:ncol(data_normalized))
+	{
+			spectra <- t(data_normalized[,i])
+			names(spectra) <- rownames(data_normalized)
+			plot(1:length(spectra), spectra, type='l', xlab="", ylab="Intensity", main=colnames(data_normalized)[i], xaxt = "n")
+			xPos <- 1
+			nAxisPos <- 4
+			startP <- length(nAxisPos) 
+			endP <- nrow(data_normalized)
+			GraphRange <- c(startP:endP)
+			tempVal = trunc(length(GraphRange)/nAxisPos)
+			xPos = c(0:nAxisPos) * tempVal
+			axis(1, at = xPos, labels = rownames(data_normalized)[xPos + startP])
+
+	}
   }
-  dev.off()
+  invisible(dev.off())
 }
 
 
